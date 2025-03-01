@@ -1,6 +1,13 @@
 
 
 #
+### **+05:30 03:30:18 PM 01-03-2025, Saturday**
+
+  - Updated `buttonClass:: isTouched()`.
+    - Removed commented out code.
+    - The touch issue was fixed.
+
+#
 ### **+05:30 12:25:00 PM 01-03-2025, Saturday**
 
   - Added Changes.md file.

@@ -389,63 +389,21 @@ void buttonClass:: draw() {
  */
 bool buttonClass:: isTouched() {
   if (uiParent->tsParent->isTouched (0)) { // Check if lcd is being touched
-    // Serial.println("Touched");
     CSE_TouchPoint p = uiParent->tsParent->getPoint(); // Get the touched point
 
-    int temp = 0;
-
-    // switch (uiParent->lcdParent->getRotation()) {
-    //   case 2:
-    //     // Origin at bottom right
-    //     // No changes required
-    //     break;
-    //   case 3:
-    //     // Origin at top right
-    //     // Flip X and Y, then invert Y
-    //     temp = p.x;
-    //     p.x = p.y;
-    //     p.y = temp;
-    //     p.y = map (p.y, 0, uiParent->lcdParent->height(), uiParent->lcdParent->height(), 0);
-    //     break;
-    //   case 0:
-    //     // Origin at top left
-    //     // Invert X and Y
-    //     p.x = map (p.x, 0, uiParent->lcdParent->width(), uiParent->lcdParent->width(), 0);
-    //     p.y = map (p.y, 0, uiParent->lcdParent->height(), uiParent->lcdParent->height(), 0);
-    //     break;
-    //   case 1:
-    //     // Origin at bottom left
-    //     // Flip X and Y, then invert X
-    //     temp = p.x;
-    //     p.x = p.y;
-    //     p.y = temp;
-    //     p.x = map (p.x, 0, uiParent->lcdParent->width(), uiParent->lcdParent->width(), 0);
-    //     break;
-    // }
-
-    // static CSE_TouchPoint prevPoint = {0, 0, 0};
-
-    // uiParent->lcdParent->drawLine (prevPoint.x, 0, prevPoint.x, uiParent->lcdParent->height(), TFT_BLACK);
-    // uiParent->lcdParent->drawLine (0, prevPoint.y, uiParent->lcdParent->width(), prevPoint.y, TFT_BLACK);
-
-    // uiParent->lcdParent->drawLine (p.x, 0, p.x, uiParent->lcdParent->height(), TFT_RED);
-    // uiParent->lcdParent->drawLine (0, p.y, uiParent->lcdParent->width(), p.y, TFT_RED);
-
-    // prevPoint = p;
-
-    Serial.print ("X = ");
-    Serial.print (p.x);
-    Serial.print (", Y = ");
-    Serial.print (p.y);
-    Serial.print (", Z = ");
-    Serial.print (p.z);
-    Serial.print (", Bx = ");
-    Serial.print (buttonX);
-    Serial.print (", By = ");
-    Serial.println (buttonY);
+    // Serial.print ("X = ");
+    // Serial.print (p.x);
+    // Serial.print (", Y = ");
+    // Serial.print (p.y);
+    // Serial.print (", Z = ");
+    // Serial.print (p.z);
+    // Serial.print (", Bx = ");
+    // Serial.print (buttonX);
+    // Serial.print (", By = ");
+    // Serial.println (buttonY);
 
     if ((p.x >= buttonX) && (p.x < (buttonX + buttonWidth)) && (p.y >= buttonY) && (p.y < (buttonY + buttonHeight)) && (p.z > CSEUI_TOUCH_PRESSURE_THRESHOLD)) {
-      Serial.println("Button Touched");
+      // Serial.println ("Button Touched");
       stateChange = currentTouchState ? false: true;
       currentTouchState = true;
       prevTouchState = true;
