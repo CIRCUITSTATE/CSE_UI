@@ -4,8 +4,14 @@
 
 //===================================================================================//
 
-#include <CSE_FT6206.h>
+#include <CSE_Touch.h>
 #include <TFT_eSPI.h>
+
+#if defined(ARDUINO_ARCH_AVR)
+  #include <ArduinoSTL.h>
+#else
+  #include <vector>
+#endif
 
 //===================================================================================//
 
@@ -29,15 +35,14 @@
 
 #define   CSEUI_TOUCH_PRESSURE_THRESHOLD            0
 
-
 //===================================================================================//
 
 class CSE_UI {
   public:
     TFT_eSPI* lcdParent;
-    CSE_FT6206* tsParent;
+    CSE_Touch* tsParent;
   
-    CSE_UI (TFT_eSPI* lcd, CSE_FT6206* ts);
+    CSE_UI (TFT_eSPI* lcd, CSE_Touch* ts);
     int currentPage;
     int prevPage;
 };

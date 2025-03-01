@@ -5,7 +5,7 @@
 
 //===================================================================================//
 
-CSE_UI:: CSE_UI (TFT_eSPI* lcd, CSE_FT6206* ts) {
+CSE_UI:: CSE_UI (TFT_eSPI* lcd, CSE_Touch* ts) {
   lcdParent = lcd;
   tsParent = ts;
   currentPage = -1;
