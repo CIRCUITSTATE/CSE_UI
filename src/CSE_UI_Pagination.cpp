@@ -1,9 +1,21 @@
 
-//===================================================================================//
+//============================================================================================//
+/*
+  Filename: CSE_UI_Pagination.cpp
+  Description: Pagination source file for the CSE_UI Arduino library.
+  Framework: Arduino, PlatformIO
+  Author: Vishnu Mohanan (@vishnumaiea, @vizmohanan)
+  Maintainer: CIRCUITSTATE Electronics (@circuitstate)
+  Version: 0.0.8
+  License: MIT
+  Source: https://github.com/CIRCUITSTATE/CSE_CST328
+  Last Modified: +05:30 01:07:12 AM 02-03-2025, Sunday
+ */
+//============================================================================================//
 
 #include "CSE_UI.h"
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Constructor for the paginationClass object. It accepts a pointer to the UI
  * parent and also initializes the button object with it.
@@ -15,7 +27,7 @@ paginationClass:: paginationClass (CSE_UI* ui) : button (ui) {
   uiParent = ui;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Initializes a pagination object. Call this after the constructor.
  * A pagination object uses the buttonClass to display the page number.
@@ -38,7 +50,7 @@ void paginationClass:: initialize (int x, int y, int w, int h, int max, uint16_t
   button.labelString = String (currentValue) + "/" + String (maxValue);
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Make the pagination indicator visible.
  * 
@@ -47,7 +59,7 @@ void paginationClass:: show() {
   button.show();
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Hide the pagination indicator.
  * 
@@ -56,7 +68,7 @@ void paginationClass:: hide() {
   button.hide();
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Enable the pagination indicator.
  * 
@@ -65,7 +77,7 @@ void paginationClass:: enable() {
   button.enable();
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Disable the pagination indicator. Disabling will cause the indicator to be
  * frozen.
@@ -75,7 +87,7 @@ void paginationClass:: disable() {
   button.disable();
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Draw the pagination indicator. Call this in any loop function. The indicator
  * will only be redrawn if there is a state change such as incrementing or decrementing
@@ -86,7 +98,7 @@ void paginationClass:: draw() {
   button.draw();
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Set the current value of the pagination indicator.
  * 
@@ -101,7 +113,7 @@ void paginationClass:: setCurrentValue (int value) {
   button.updateState (true);
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Returns the current value of the pagination indicator.
  * 
@@ -111,7 +123,7 @@ int paginationClass:: getCurrentValue() {
   return currentValue;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Set the maximum value of the pagination indicator.
  * 
@@ -126,7 +138,7 @@ void paginationClass:: setMaxValue (int value) {
   button.updateState (true);
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Returns the maximum value of the pagination indicator.
  * 
@@ -136,7 +148,7 @@ int paginationClass:: getMaxValue() {
   return maxValue;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Set the start value of the pagination indicator.
  * 
@@ -149,7 +161,7 @@ void paginationClass:: setStartValue (int value) {
   startValue = value;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Returns the start value of the pagination indicator.
  * 
@@ -159,7 +171,7 @@ int paginationClass:: getStartValue() {
   return startValue;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Increment the pagination indicator by 1.
  * 
@@ -172,7 +184,7 @@ void paginationClass:: increment() {
   }
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Decrement the pagination indicator by 1.
  * 
@@ -185,7 +197,7 @@ void paginationClass:: decrement() {
   }
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Reset the pagination indicator to the start value.
  * 
@@ -196,7 +208,7 @@ void paginationClass:: reset() {
   button.updateState (true);
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Returns the pagination indicator as "currentValue/maxValue".
  * 
@@ -206,4 +218,4 @@ String paginationClass:: getString() {
   return button.labelString;
 }
 
-//===================================================================================//
+//============================================================================================//

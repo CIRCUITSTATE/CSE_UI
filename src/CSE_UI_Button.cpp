@@ -1,21 +1,21 @@
 
-//===================================================================================//
-/**
- * @file CSE_UI_Button.cpp
- * @author Vishnu Mohanan (https://github.com/vishnumaiea)
- * @brief 
- * @version 0.1
- * @date 2023-06-19
- * 
- * @copyright Copyright (c) 2023
- * 
- * @license
+//============================================================================================//
+/*
+  Filename: CSE_UI_Button.cpp
+  Description: Button support source file for the CSE_UI Arduino library.
+  Framework: Arduino, PlatformIO
+  Author: Vishnu Mohanan (@vishnumaiea, @vizmohanan)
+  Maintainer: CIRCUITSTATE Electronics (@circuitstate)
+  Version: 0.0.8
+  License: MIT
+  Source: https://github.com/CIRCUITSTATE/CSE_CST328
+  Last Modified: +05:30 01:08:48 AM 02-03-2025, Sunday
  */
-//===================================================================================//
+//============================================================================================//
 
 #include "CSE_UI.h"
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Constructor for the buttonClass object. It accepts a pointer to the UI
  * parent. You should create a UI object before calling this constructor.
@@ -27,7 +27,7 @@ buttonClass:: buttonClass (CSE_UI* ui) {
   uiParent = ui;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Initializes a button object. Call this after the constructor. Only the most
  * important parameters are required here. Other parameters are initilized to default
@@ -80,7 +80,7 @@ void buttonClass:: initialize (int16_t x,int16_t y, int16_t w, int16_t h, uint16
   activeState = false;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Draws the button on the screen. The button is drawn only if there is a state
  * change. This is to avoid flickering from continuous redrawing. A state change can
@@ -380,7 +380,7 @@ void buttonClass:: draw() {
   }
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Check if the button is currently being touched.
  * 
@@ -402,7 +402,7 @@ bool buttonClass:: isTouched() {
     // Serial.print (", By = ");
     // Serial.println (buttonY);
 
-    if ((p.x >= buttonX) && (p.x < (buttonX + buttonWidth)) && (p.y >= buttonY) && (p.y < (buttonY + buttonHeight)) && (p.z > CSEUI_TOUCH_PRESSURE_THRESHOLD)) {
+    if ((p.x >= buttonX) && (p.x < (buttonX + buttonWidth)) && (p.y >= buttonY) && (p.y < (buttonY + buttonHeight)) && (p.z >= CSEUI_TOUCH_PRESSURE_THRESHOLD)) {
       // Serial.println ("Button Touched");
       stateChange = currentTouchState ? false: true;
       currentTouchState = true;
@@ -415,7 +415,7 @@ bool buttonClass:: isTouched() {
   return false;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Check if the button is pressed once. Pressing the butto requires touching the
  * button and then releasing it.
@@ -431,7 +431,7 @@ bool buttonClass:: isPressed() {
   else return false;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Make the button visible. This operation does not trigger a state change.
  * The button will be drawn on the screen in the next draw() call.
@@ -441,7 +441,7 @@ void buttonClass:: show() {
   buttonVisible = true;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Hide the button. This operation does not trigger a state change.
  * You have to clear the button area with a background color manually.
@@ -451,7 +451,7 @@ void buttonClass:: hide() {
   buttonVisible = false;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief A button can be enabled or disabled when it is still visible on the screen.
  * A disabled button will not respond to touch events. It will also have a different
@@ -462,7 +462,7 @@ void buttonClass:: disable() {
   buttonEnabled = false;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Enable the button. This is the default state of a button.
  * 
@@ -471,7 +471,7 @@ void buttonClass:: enable() {
   buttonEnabled = true;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Resets the states of the button. This is usually called when the button has
  * to be redrawn, for example when a page is changed.
@@ -484,7 +484,7 @@ void buttonClass:: reset() {
   // activeState = false;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Clears the button area with a background color.
  * 
@@ -494,7 +494,7 @@ void buttonClass:: clear (uint32_t bgColor) {
   uiParent->lcdParent->fillSmoothRoundRect (buttonX, buttonY, buttonWidth, buttonHeight, radius, bgColor, bgColor);
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Sets the XY coordinates of the button.
  * 
@@ -506,7 +506,7 @@ void buttonClass:: setXY (int x, int y) {
   buttonY = y;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Enables the hover effect for the whole button.
  * 
@@ -515,7 +515,7 @@ void buttonClass:: hoverEnable() {
   buttonHoverEnabled = true;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Disables the hover effect for the whole button.
  * 
@@ -524,7 +524,7 @@ void buttonClass:: hoverDisable() {
   buttonHoverEnabled = false;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Make the button border visible.
  * 
@@ -533,7 +533,7 @@ void buttonClass:: showBorder() {
   borderVisible = true;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Hide the button border.
  * 
@@ -542,7 +542,7 @@ void buttonClass:: hideBorder() {
   borderVisible = false;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Enable the hover effect for the button border.
  * 
@@ -551,7 +551,7 @@ void buttonClass:: borderHoverDisable() {
   borderHoverEnabled = false;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Disable the hover effect for the button border.
  * 
@@ -560,7 +560,7 @@ void buttonClass:: borderHoverEnable() {
   borderHoverEnabled = true;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Make the button fill visible.
  * 
@@ -569,7 +569,7 @@ void buttonClass:: showFill() {
   fillVisible = true;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Hide the button fill.
  * 
@@ -578,7 +578,7 @@ void buttonClass:: hideFill() {
   fillVisible = false;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Enable the hover effect for the button fill.
  * 
@@ -587,7 +587,7 @@ void buttonClass:: fillHoverEnable() {
   fillHoverEnabled = true;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Disable the hover effect for the button fill.
  * 
@@ -596,7 +596,7 @@ void buttonClass:: fillHoverDisable() {
   fillHoverEnabled = false;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Make the button label visible.
  * 
@@ -605,7 +605,7 @@ void buttonClass:: showLabel() {
   labelVisible = true;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Hide the button label.
  * 
@@ -614,7 +614,7 @@ void buttonClass:: hideLabel() {
   labelVisible = false;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Enable the hover effect for the button label.
  * 
@@ -623,7 +623,7 @@ void buttonClass:: labelHoverEnable() {
   labelHoverEnabled = true;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Disable the hover effect for the button label.
  * 
@@ -632,7 +632,7 @@ void buttonClass:: labelHoverDisable() {
   labelHoverEnabled = false;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Make the button icon visible, if there is one.
  * 
@@ -641,7 +641,7 @@ void buttonClass:: showIcon() {
   iconVisible = true;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Hide the button icon.
  * 
@@ -650,7 +650,7 @@ void buttonClass:: hideIcon() {
   iconVisible = false;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Enable the hover effect for the button icon.
  * 
@@ -659,7 +659,7 @@ void buttonClass:: iconHoverEnable() {
   iconHoverEnabled = true;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Disable the hover effect for the button icon.
  * 
@@ -668,7 +668,7 @@ void buttonClass:: iconHoverDisable() {
   iconHoverEnabled = false;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Updates the current state of the button. Used to trigger a state change, or
  * disable it after an operation.
@@ -679,7 +679,7 @@ void buttonClass:: updateState (bool state) {
   stateChange = state;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Get the current state of the button.
  * 
@@ -690,7 +690,7 @@ bool buttonClass:: getState() {
   return stateChange;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief A button can enter an intermediate state after touched. This can be used to
  * toggle the state of the button, for example change the color after touched. But you
@@ -701,7 +701,7 @@ void buttonClass:: activate() {
   activeState = true;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Deactivate the intermediate state of the button.
  * 
@@ -710,7 +710,7 @@ void buttonClass:: deactivate() {
   activeState = false;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Toggle the intermediate state of the button.
  * 
@@ -719,7 +719,7 @@ void buttonClass:: toggleState() {
   activeState = activeState ? false: true;
 }
 
-//===================================================================================//
+//============================================================================================//
 // /**
 //  * @brief Set the intermediate state of the button.
 //  * 
@@ -729,4 +729,4 @@ void buttonClass:: toggleState() {
 //   if (toggle) activeState = activeState ? false: true;
 // }
 
-//===================================================================================//
+//============================================================================================//

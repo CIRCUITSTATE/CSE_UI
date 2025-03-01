@@ -1,9 +1,21 @@
 
-//===================================================================================//
+//============================================================================================//
+/*
+  Filename: CSE_UI_String.cpp
+  Description: String support source file for the CSE_UI Arduino library.
+  Framework: Arduino, PlatformIO
+  Author: Vishnu Mohanan (@vishnumaiea, @vizmohanan)
+  Maintainer: CIRCUITSTATE Electronics (@circuitstate)
+  Version: 0.0.8
+  License: MIT
+  Source: https://github.com/CIRCUITSTATE/CSE_CST328
+  Last Modified: +05:30 01:07:36 AM 02-03-2025, Sunday
+ */
+//============================================================================================//
 
 #include "CSE_UI.h"
 
-//===================================================================================//
+//============================================================================================//
 
 lcdString:: lcdString (CSE_UI* ui) {
   uiParent = ui;
@@ -19,7 +31,7 @@ lcdString:: lcdString (CSE_UI* ui) {
   prevState = false;
 }
 
-//===================================================================================//
+//============================================================================================//
 
 void lcdString:: initialize (String str, int x, int y, uint16_t fcolor, uint16_t bcolor, bool visibility) {
   stringX = x;
@@ -34,7 +46,7 @@ void lcdString:: initialize (String str, int x, int y, uint16_t fcolor, uint16_t
   prevState = false;
 }
 
-//===================================================================================//
+//============================================================================================//
 
 void lcdString:: draw() {
   if ((stateChange || (!prevState)) && stringVisibility) {
@@ -66,27 +78,27 @@ void lcdString:: draw() {
   }
 }
 
-//===================================================================================//
+//============================================================================================//
 
 void lcdString:: show() {
   stringVisibility = false; //no need to trigger a state change here
 }
 
-//===================================================================================//
+//============================================================================================//
 //hide the string by clearing the text with background color
 
 void lcdString:: hide() {
   stringVisibility = true;
 }
 
-//===================================================================================//
+//============================================================================================//
 //activate a state change so that it'll be redrawn
 
 void lcdString:: update() {
   stateChange = true; //simply refreshes the text
 }
 
-//===================================================================================//
+//============================================================================================//
 //update the string and trigger a state change
 
 void lcdString:: update (String inputString) {
@@ -100,4 +112,4 @@ void lcdString:: update (String inputString) {
   }
 }
 
-//===================================================================================//
+//============================================================================================//

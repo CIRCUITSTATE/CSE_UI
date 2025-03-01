@@ -1,8 +1,22 @@
 
+//============================================================================================//
+/*
+  Filename: CSE_UI.h
+  Description: Main header file for the CSE_UI Arduino library.
+  Framework: Arduino, PlatformIO
+  Author: Vishnu Mohanan (@vishnumaiea, @vizmohanan)
+  Maintainer: CIRCUITSTATE Electronics (@circuitstate)
+  Version: 0.0.8
+  License: MIT
+  Source: https://github.com/CIRCUITSTATE/CSE_CST328
+  Last Modified: +05:30 01:04:53 AM 02-03-2025, Sunday
+ */
+//============================================================================================//
+
 #ifndef CSE_UI_LIBRARY
 #define CSE_UI_LIBRARY
 
-//===================================================================================//
+//============================================================================================//
 
 #include <CSE_Touch.h>
 #include <TFT_eSPI.h>
@@ -13,7 +27,7 @@
   #include <vector>
 #endif
 
-//===================================================================================//
+//============================================================================================//
 
 #define   CSEUI_BUTTON_DEF_RADIUS                   3
 #define   CSEUI_BUTTON_DEF_BORDER_COLOR             TFT_WHITE
@@ -35,7 +49,7 @@
 
 #define   CSEUI_TOUCH_PRESSURE_THRESHOLD            0
 
-//===================================================================================//
+//============================================================================================//
 
 class CSE_UI {
   public:
@@ -47,7 +61,7 @@ class CSE_UI {
     int prevPage;
 };
 
-//===================================================================================//
+//============================================================================================//
 
 class pageClass {
   private:
@@ -69,7 +83,7 @@ class pageClass {
     bool draw();
 };
 
-//===================================================================================//
+//============================================================================================//
 
 class lcdString {
   private:
@@ -96,7 +110,7 @@ class lcdString {
     void update (String); //update the text with a new string and redraw it
 };
 
-//===================================================================================//
+//============================================================================================//
 
 class boxClass {
   private:
@@ -115,7 +129,7 @@ class boxClass {
     bool hoverEnabled;
 };
 
-//===================================================================================//
+//============================================================================================//
 
 class iconClass {
   private:
@@ -145,7 +159,7 @@ class iconClass {
     void getSize(); //calculates the absolute width and height of an icon
 };
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Class for creating rectangular and rounded-rectangular buttons. Buttons can
  * have custom fill color, hover color, border, text, icon, etc. The buttonClass can
@@ -244,7 +258,7 @@ class buttonClass {
     // void toggleState (bool);
 };
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Class for creating interactive and scrollable lists of items. Each list item
  * will be a button object. Any number of items can be added dynamically.
@@ -296,7 +310,7 @@ class listClass {
     void hide();
 };
 
-//===================================================================================//
+//============================================================================================//
 
 class textAreaClass {
   private:
@@ -344,7 +358,7 @@ class textAreaClass {
     void setAreaPadding (int l = 0, int t = 0, int r = 0, int b = 0);
 };
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Class for creating a pagination indicator as "currentValue/maxValue".
  * This is useful for lists with selectable items such as menu options. This class
@@ -380,6 +394,6 @@ class paginationClass {
     String getString();
 };
 
-//===================================================================================//
+//============================================================================================//
 
 #endif // CSE_UI_LIBRARY

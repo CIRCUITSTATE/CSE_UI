@@ -1,6 +1,12 @@
 
 
 #
+### **+05:30 01:16:02 AM 02-03-2025, Sunday**
+
+  - Added file descriptions.
+  - Updated Readme.
+
+#
 ### **+05:30 03:30:18 PM 01-03-2025, Saturday**
 
   - Updated `buttonClass:: isTouched()`.

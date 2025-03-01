@@ -1,15 +1,27 @@
 
-//===================================================================================//
+//============================================================================================//
+/*
+  Filename: CSE_UI_Icon.cpp
+  Description: Icon support source file for the CSE_UI Arduino library.
+  Framework: Arduino, PlatformIO
+  Author: Vishnu Mohanan (@vishnumaiea, @vizmohanan)
+  Maintainer: CIRCUITSTATE Electronics (@circuitstate)
+  Version: 0.0.8
+  License: MIT
+  Source: https://github.com/CIRCUITSTATE/CSE_CST328
+  Last Modified: +05:30 01:06:13 AM 02-03-2025, Sunday
+ */
+//============================================================================================//
 
 #include "CSE_UI.h"
 
-//===================================================================================//
+//============================================================================================//
 
 iconClass:: iconClass (CSE_UI* ui) {
   uiParent = ui;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Constructor for FontAwesome icon font, with LCD parent.
  * 
@@ -38,7 +50,7 @@ void iconClass:: initialize (const char* array, int w, int h, int byteLen, int b
   glyphY = 0;
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Draws a FontAwesome icon to the screen without background color.
  * 
@@ -67,7 +79,7 @@ void iconClass:: draw (int16_t x, int16_t y, uint16_t color) {
   }
 }
 
-//===================================================================================//
+//============================================================================================//
 /**
  * @brief Gets the width, height and offsets of a icon, char or string in pixels.
  * An offset is simply how many lines of empty pixels are before a valid black pixel.
