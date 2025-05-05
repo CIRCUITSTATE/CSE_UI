@@ -27,8 +27,8 @@ This library depends on the following libraries:
 
 - [TFT_eSPI](https://github.com/Bodmer/TFT_eSPI) - The graphics library used by CSE_UI.
 - [CSE_Touch](https://github.com/CIRCUITSTATE/CSE_Touch) - The touch library used by CSE_UI.
-  - [CST328](https://github.com/CIRCUITSTATE/CSE_CST328) - For CST328 capacitive touch controllers.
-  - [FT6206](https://github.com/CIRCUITSTATE/CSE_FT6206) - For FT6206 capacitive touch controllers.
+  - [CSE_CST328](https://github.com/CIRCUITSTATE/CSE_CST328) - For CST328 capacitive touch controllers.
+  - [CSE_FT6206](https://github.com/CIRCUITSTATE/CSE_FT6206) - For FT6206 capacitive touch controllers.
 
 Make sure to install them as well.
 
@@ -46,7 +46,7 @@ Please see the [API.md](/docs/API.md) file for the API reference.
 
 ## References
 
--  [**CSE_UI - CIRCUITSTATE GitHub**](https://github.com/CIRCUITSTATE/CSE_UI) - An Arduino GUI library for common TFT/IPS screens.
--  [**Adafruit_FT6206 Library**](https://github.com/adafruit/Adafruit_FT6206_Library) - Where this library took inspiration from.
--  [**TouchLib**](https://github.com/mmMicky/TouchLib/tree/main) - An alternate library for the CST328.
--  [**Waveshare 2.8" Capacitive Touch LCD**](https://www.waveshare.com/wiki/2.8inch_Capacitive_Touch_LCD)
+- [**CSE_UI - CIRCUITSTATE GitHub**](https://github.com/CIRCUITSTATE/CSE_UI) - An Arduino GUI library for common TFT/IPS screens.
+- [**Adafruit_FT6206 Library**](https://github.com/adafruit/Adafruit_FT6206_Library) - Where this library took inspiration from.
+- [**TouchLib**](https://github.com/mmMicky/TouchLib/tree/main) - An alternate library for the CST328.
+- [**Waveshare 2.8" Capacitive Touch LCD**](https://www.waveshare.com/wiki/2.8inch_Capacitive_Touch_LCD)

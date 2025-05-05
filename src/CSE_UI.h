@@ -9,7 +9,7 @@
   Version: 0.0.8
   License: MIT
   Source: https://github.com/CIRCUITSTATE/CSE_CST328
-  Last Modified: +05:30 01:04:53 AM 02-03-2025, Sunday
+  Last Modified: +05:30 20:26:32 PM 05-05-2025, Monday
  */
 //============================================================================================//
 
@@ -96,13 +96,14 @@ class lcdString {
     String prevString; //prev string which is used to clear the text area faster than filling a rectangle
     uint16_t stringColor;
     uint16_t stringBgColor; //bg color will be used to clear the text area
+    uint8_t* font;
 
     bool stateChange; //set true to trigger a state change and thus causing the text to be redrawn
     bool stringVisibility; //show or hide the text
     bool prevState; //used to detect if the text was displayed before hiding it
 
     lcdString (CSE_UI* ui); //constructor
-    void initialize (String str, int x, int y, uint16_t fcolor, uint16_t bcolor, bool visibility); //initilizes the object. call this from first function executed after restart
+    void initialize (String str, int x, int y, uint16_t fcolor, uint16_t bcolor, bool visibility, uint8_t* font = NULL); //initilizes the object. call this from first function executed after restart
     void draw(); //draw the text to LCD
     void show(); //show the text
     void hide(); //hide the text. if text was previously drawn, the text area will be cleared with bg color
@@ -155,6 +156,7 @@ class iconClass {
 
     iconClass (CSE_UI* ui);
     void initialize (const char* array, int w, int h, int byteLen, int byteCount, uint32_t unicode, String str);
+    void initialize (const char* font, uint32_t unicode, String name);
     void draw (int16_t x, int16_t y, uint16_t color);
     void getSize(); //calculates the absolute width and height of an icon
 };

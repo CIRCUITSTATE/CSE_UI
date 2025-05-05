@@ -1,4 +1,16 @@
 
+# Changes
+
+#
+### **+05:30 08:31:21 PM 05-05-2025, Monday**
+
+  - `lcdString:: initialize()` now accepts a `font` parameter of type `uint8_t`.
+    - `font` is initialized with `NULL` for backward compatibility.
+  - `lcdString:: draw()` loads the font if it not `NULL`.
+  - This allows the user to set a font for the string and not worry about loading it every time when drawing the string.
+  - Added `API.md` and `Manual.md` files.
+  - Added `Page.ino` example.
+  - Updated `Readme.md` file.
 
 #
 ### **+05:30 01:16:02 AM 02-03-2025, Sunday**

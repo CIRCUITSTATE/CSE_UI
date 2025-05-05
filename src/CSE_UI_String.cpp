@@ -9,7 +9,7 @@
   Version: 0.0.8
   License: MIT
   Source: https://github.com/CIRCUITSTATE/CSE_CST328
-  Last Modified: +05:30 01:07:36 AM 02-03-2025, Sunday
+  Last Modified: +05:30 20:27:57 PM 05-05-2025, Monday
  */
 //============================================================================================//
 
@@ -29,11 +29,12 @@ lcdString:: lcdString (CSE_UI* ui) {
   stateChange = true;
   stringVisibility = true;
   prevState = false;
+  font = NULL;
 }
 
 //============================================================================================//
 
-void lcdString:: initialize (String str, int x, int y, uint16_t fcolor, uint16_t bcolor, bool visibility) {
+void lcdString:: initialize (String str, int x, int y, uint16_t fcolor, uint16_t bcolor, bool visibility, uint8_t* font) {
   stringX = x;
   stringY = y;
   currentString = str;
@@ -44,19 +45,24 @@ void lcdString:: initialize (String str, int x, int y, uint16_t fcolor, uint16_t
   stateChange = true;
   stringVisibility = visibility;
   prevState = false;
+  this->font = font; // Font used for the string
 }
 
 //============================================================================================//
 
 void lcdString:: draw() {
+  if (font) { // If a font is set, use it.
+    uiParent->lcdParent->loadFont (font); // Set the font for the string
+  }
+  
   if ((stateChange || (!prevState)) && stringVisibility) {
-    if (prevState) {
+    if (prevState) { // Clear the text area with prev string
       uiParent->lcdParent->setTextColor (stringBgColor, stringBgColor);
-      uiParent->lcdParent->drawString (prevString, stringX, stringY); //clear the text area with prev string
+      uiParent->lcdParent->drawString (prevString, stringX, stringY);
     }
 
     uiParent->lcdParent->setTextColor (stringColor, stringBgColor);
-    uiParent->lcdParent->drawString (currentString, stringX, stringY); //print the current string
+    uiParent->lcdParent->drawString (currentString, stringX, stringY); // Print the current string
     prevString = currentString; //previous and current strings are same now
     stateChange = false; //so that it won't drawn again
     prevState = true; //now the state is active
