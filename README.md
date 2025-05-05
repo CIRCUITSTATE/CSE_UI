@@ -3,7 +3,7 @@
 
 # CSE_UI
 
-**CSE_UI** is an Arduino library from [*CIRCUITSTATE Electronics*](https://www.circuitstate.com/). It helps you design basic **Graphical User Interface (GUI)** on various small LCD screens that can be interfaced with Arduino boards. The library is built on top of the [**TFT_eSPI**](https://github.com/Bodmer/TFT_eSPI) graphics library. Therefore, all displays supported by the TFT_eSPI library are also supported by CSE_UI. Touch functionality is implemented through the [**CSE_Touch**](https://github.com/CIRCUITSTATE/CSE_Touch) library. Currently, it supports [CST328](https://github.com/CIRCUITSTATE/CSE_CST328) and [FT6206](https://github.com/CIRCUITSTATE/CSE_FT6206) capacitive touch controllers. The touch support can be extended easily.
+[**CSE_UI**](https://github.com/CIRCUITSTATE/CSE_UI) is an Arduino library from [*CIRCUITSTATE Electronics*](https://www.circuitstate.com/). It helps you design basic **Graphical User Interface (GUI)** on various small LCD screens that can be interfaced with Arduino boards. The library is built on top of the [**TFT_eSPI**](https://github.com/Bodmer/TFT_eSPI) graphics library. Therefore, all displays supported by the TFT_eSPI library are also supported by CSE_UI. Touch functionality is implemented through the [**CSE_Touch**](https://github.com/CIRCUITSTATE/CSE_Touch) library. Currently, it supports [CST328](https://github.com/CIRCUITSTATE/CSE_CST328) and [FT6206](https://github.com/CIRCUITSTATE/CSE_FT6206) capacitive touch controllers. The touch support can be extended easily.
 
 ## Installation
 
@@ -46,7 +46,6 @@ Please see the [API.md](/docs/API.md) file for the API reference.
 
 ## References
 
-- [**CSE_UI - CIRCUITSTATE GitHub**](https://github.com/CIRCUITSTATE/CSE_UI) - An Arduino GUI library for common TFT/IPS screens.
 - [**Adafruit_FT6206 Library**](https://github.com/adafruit/Adafruit_FT6206_Library) - Where this library took inspiration from.
 - [**TouchLib**](https://github.com/mmMicky/TouchLib/tree/main) - An alternate library for the CST328.
 - [**Waveshare 2.8" Capacitive Touch LCD**](https://www.waveshare.com/wiki/2.8inch_Capacitive_Touch_LCD)
