@@ -2,6 +2,15 @@
 # Changes
 
 #
+### **+05:30 11:04:16 PM 06-05-2025, Tuesday**
+
+  - Added text datum parameter to `lcdString` class.
+    - This will help align the string in different ways.
+    - Added `datum` which will hold the same type of text datum used by the `TFT_eSPI` library.
+    - Added `setTextDatum()` method to set the text datum.
+    - The text datum is loaded before drawing the string and the previous datum will be restored upon exiting.
+
+#
 ### **+05:30 08:31:21 PM 05-05-2025, Monday**
 
   - `lcdString:: initialize()` now accepts a `font` parameter of type `uint8_t`.

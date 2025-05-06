@@ -9,7 +9,7 @@
   Version: 0.0.8
   License: MIT
   Source: https://github.com/CIRCUITSTATE/CSE_CST328
-  Last Modified: +05:30 20:26:32 PM 05-05-2025, Monday
+  Last Modified: +05:30 22:15:39 PM 06-05-2025, Tuesday
  */
 //============================================================================================//
 
@@ -96,19 +96,21 @@ class lcdString {
     String prevString; //prev string which is used to clear the text area faster than filling a rectangle
     uint16_t stringColor;
     uint16_t stringBgColor; //bg color will be used to clear the text area
-    uint8_t* font;
+    const uint8_t* font;
+    uint8_t datum; // Text alignment datum
 
     bool stateChange; //set true to trigger a state change and thus causing the text to be redrawn
     bool stringVisibility; //show or hide the text
     bool prevState; //used to detect if the text was displayed before hiding it
 
     lcdString (CSE_UI* ui); //constructor
-    void initialize (String str, int x, int y, uint16_t fcolor, uint16_t bcolor, bool visibility, uint8_t* font = NULL); //initilizes the object. call this from first function executed after restart
+    void initialize (String str, int x, int y, uint16_t fcolor, uint16_t bcolor, bool visibility, const uint8_t* font = nullptr); //initilizes the object. call this from first function executed after restart
     void draw(); //draw the text to LCD
     void show(); //show the text
     void hide(); //hide the text. if text was previously drawn, the text area will be cleared with bg color
     void update(); //triggers a state change and redraws the text
     void update (String); //update the text with a new string and redraw it
+    void setTextDatum (uint8_t datum);
 };
 
 //============================================================================================//

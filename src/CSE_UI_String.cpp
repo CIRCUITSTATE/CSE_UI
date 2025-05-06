@@ -9,7 +9,7 @@
   Version: 0.0.8
   License: MIT
   Source: https://github.com/CIRCUITSTATE/CSE_CST328
-  Last Modified: +05:30 20:27:57 PM 05-05-2025, Monday
+  Last Modified: +05:30 22:39:30 PM 06-05-2025, Tuesday
  */
 //============================================================================================//
 
@@ -34,7 +34,7 @@ lcdString:: lcdString (CSE_UI* ui) {
 
 //============================================================================================//
 
-void lcdString:: initialize (String str, int x, int y, uint16_t fcolor, uint16_t bcolor, bool visibility, uint8_t* font) {
+void lcdString:: initialize (String str, int x, int y, uint16_t fcolor, uint16_t bcolor, bool visibility, const uint8_t* font) {
   stringX = x;
   stringY = y;
   currentString = str;
@@ -50,12 +50,15 @@ void lcdString:: initialize (String str, int x, int y, uint16_t fcolor, uint16_t
 
 //============================================================================================//
 
-void lcdString:: draw() {
-  if (font) { // If a font is set, use it.
-    uiParent->lcdParent->loadFont (font); // Set the font for the string
-  }
-  
+void lcdString:: draw() {  
   if ((stateChange || (!prevState)) && stringVisibility) {
+    if (font) { // If a font is set, use it.
+      uiParent->lcdParent->loadFont (font); // Set the font for the string
+    }
+
+    uint8_t prev_datum = uiParent->lcdParent->getTextDatum(); // Get the current text datum.
+    uiParent->lcdParent->setTextDatum (datum); // Set new text datum.
+    
     if (prevState) { // Clear the text area with prev string
       uiParent->lcdParent->setTextColor (stringBgColor, stringBgColor);
       uiParent->lcdParent->drawString (prevString, stringX, stringY);
@@ -66,9 +69,18 @@ void lcdString:: draw() {
     prevString = currentString; //previous and current strings are same now
     stateChange = false; //so that it won't drawn again
     prevState = true; //now the state is active
+
+    uiParent->lcdParent->setTextDatum (prev_datum); // Restore the previous text datum.
   }
 
   if (!stringVisibility) { //if it is hidden
+    if (font) { // If a font is set, use it.
+      uiParent->lcdParent->loadFont (font); // Set the font for the string
+    }
+
+    uint8_t prev_datum = uiParent->lcdParent->getTextDatum(); // Get the current text datum.
+    uiParent->lcdParent->setTextDatum (datum); // Set new text datum.
+    
     if (prevState) { //if the text was drawn before
       uiParent->lcdParent->setTextColor (stringBgColor, stringBgColor);
 
@@ -80,6 +92,7 @@ void lcdString:: draw() {
       }
 
       prevState = false; //now the text has disappeared, and so set this to false
+      uiParent->lcdParent->setTextDatum (prev_datum); // Restore the previous text datum.
     }
   }
 }
@@ -116,6 +129,12 @@ void lcdString:: update (String inputString) {
   else {
     stateChange = false;
   }
+}
+
+//============================================================================================//
+
+void lcdString:: setTextDatum (uint8_t datum) {
+  this->datum = datum; // Set the text alignment datum
 }
 
 //============================================================================================//
